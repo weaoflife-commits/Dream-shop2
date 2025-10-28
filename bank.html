@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank - Dream eShop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>Dream eShop</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="cart.html">Cart</a>
+                <a href="orders.html">Orders</a>
+                <a href="bank.html" class="active">Bank</a>
+                
+            </div>
+            <div class="user-info">
+                <span id="balance">Balance: $1,000,000,000</span>
+                <input type="text" id="username" placeholder="Enter username" value="User1">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Dream Bank</h2>
+            
+            <div class="bank-info">
+                <h3>Bank Services</h3>
+                <p>Earn $60 every 30 seconds by depositing your money in our secure bank!</p>
+            </div>
+            
+            <div class="bank-panel">
+                <h3>Your Bank Account</h3>
+                <div class="account-info">
+                    <p>Bank Balance: $<span id="bank-balance">0.00</span></p>
+                    <p>Interest Rate: $60 per 30 seconds</p>
+                    <p>Last Interest Payment: <span id="last-payment">Never</span></p>
+                </div>
+                
+                <div class="bank-actions">
+                    <div class="form-group">
+                        <label for="deposit-amount">Deposit Amount ($)</label>
+                        <input type="number" id="deposit-amount" min="1" placeholder="Enter amount">
+                    </div>
+                    <button class="btn btn-block" onclick="depositMoney()">Deposit Money</button>
+                    
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label for="withdraw-amount">Withdraw Amount ($)</label>
+                        <input type="number" id="withdraw-amount" min="1" placeholder="Enter amount">
+                    </div>
+                    <button class="btn btn-block" onclick="withdrawMoney()">Withdraw Money</button>
+                </div>
+            </div>
+            
+            <div class="interest-status">
+                <h3>Interest Status</h3>
+                <p id="interest-status">Interest earning is currently inactive.</p>
+                <button class="btn" onclick="toggleInterest()" id="interest-toggle">Start Earning Interest</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Dream eShop - Virtual Shopping Experience | All purchases are simulated!</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeData();
+            updateBalanceDisplay();
+            displayBankInfo();
+            
+            // Start interest timer if active
+            const bankAccount = getBankAccount();
+            if (bankAccount.interestActive) {
+                startInterestTimer();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - Dream eShop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>Dream eShop</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="cart.html">Cart</a>
+                <a href="orders.html" class="active">Orders</a>
+                <a href="bank.html">Bank</a>
+                
+            </div>
+            <div class="user-info">
+                <span id="balance">Balance: $1,000,000,000</span>
+                <input type="text" id="username" placeholder="Enter username" value="User1">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Order History</h2>
+            <div class="order-history">
+                <div id="orders-container">
+                    <!-- Order history will be loaded here dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Dream eShop - Virtual Shopping Experience | All purchases are simulated!</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeData();
+            updateBalanceDisplay();
+            displayOrders();
+        });
+    </script>
+</body>
+</html>

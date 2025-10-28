@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Products - Dream eShop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>Dream eShop</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="cart.html">Cart</a>
+                <a href="orders.html">Orders</a>
+                <a href="admin.html">Admin</a>
+                <a href="admin-panel.html">Product Management</a>
+            </div>
+            <div class="user-info">
+                <span id="balance">Balance: $1,000,000,000</span>
+                <input type="text" id="username" placeholder="Enter username" value="admin">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Debug Product Storage</h2>
+            
+            <div class="admin-panel">
+                <h3>Test Product Storage</h3>
+                <button class="btn" onclick="checkStorage()">Check Storage</button>
+                <button class="btn" onclick="clearDynamicProducts()">Clear Dynamic Products</button>
+                <button class="btn" onclick="addTestProduct()">Add Test Product</button>
+                <div id="results" style="margin-top: 20px;">
+                    <!-- Results will appear here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Dream eShop - Virtual Shopping Experience | All purchases are simulated!</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function checkStorage() {
+            const resultsDiv = document.getElementById('results');
+            
+            try {
+                // Initialize data first
+                initializeData();
+                
+                const products = getProducts();
+                const dynamicProducts = JSON.parse(localStorage.getItem('dynamicProducts') || '[]');
+                const initialProducts = JSON.parse(localStorage.getItem('products') || '[]');
+                
+                resultsDiv.innerHTML = `
+                    <h4>Storage Status:</h4>
+                    <p><strong>Initial Products Count:</strong> ${initialProducts.length}</p>
+                    <p><strong>Dynamic Products Count:</strong> ${dynamicProducts.length}</p>
+                    <p><strong>Total Products Count:</strong> ${products.length}</p>
+                    
+                    <h4>Initial Products:</h4>
+                    <pre>${JSON.stringify(initialProducts, null, 2)}</pre>
+                    
+                    <h4>Dynamic Products:</h4>
+                    <pre>${JSON.stringify(dynamicProducts, null, 2)}</pre>
+                    
+                    <h4>All Products:</h4>
+                    <pre>${JSON.stringify(products, null, 2)}</pre>
+                `;
+            } catch (e) {
+                resultsDiv.innerHTML = `<p>Error checking storage: ${e.message}</p>`;
+            }
+        }
+        
+        function clearDynamicProducts() {
+            localStorage.setItem('dynamicProducts', JSON.stringify([]));
+            document.getElementById('results').innerHTML = '<p>Dynamic products cleared!</p>';
+            checkStorage(); // Refresh the display
+        }
+        
+        function addTestProduct() {
+            // Use the same function that the admin panel uses
+            const dynamicProducts = JSON.parse(localStorage.getItem('dynamicProducts') || '[]');
+            
+            const newProduct = {
+                id: Date.now(),
+                name: "Debug Test Product",
+                price: 99.99,
+                description: "This is a test product to verify storage functionality",
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&h=400"
+            };
+            
+            dynamicProducts.push(newProduct);
+            saveDynamicProducts(dynamicProducts);
+            
+            document.getElementById('results').innerHTML = '<p>Test product added! Click "Check Storage" to verify.</p>';
+            checkStorage(); // Refresh the display
+        }
+        
+        // Initialize data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeData();
+            updateBalanceDisplay();
+        });
+    </script>
+</body>
+</html>
