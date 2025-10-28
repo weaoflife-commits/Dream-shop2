@@ -44,6 +44,90 @@ const initialProducts = [
         price: 149.99,
         description: "Programmable coffee maker with thermal carafe",
         image: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?auto=format&fit=crop&w=600&h=400"
+    },
+    {
+        id: 7,
+        name: "Super car",
+        price: 152000,
+        description: "Luxury super car",
+        image: "images/afkug.jpg"
+    },
+    {
+        id: 8,
+        name: "Laptop",
+        price: 799.99,
+        description: "High-performance laptop for work and entertainment",
+        image: "images/dhff.jpg"
+    },
+    {
+        id: 9,
+        name: "iPhone",
+        price: 500000,
+        description: "Latest iPhone model",
+        image: "images/hsjf.jpg"
+    },
+    {
+        id: 10,
+        name: "Stadium",
+        price: 10000000,
+        description: "Sports stadium",
+        image: "images/adfvbdnb.jpg"
+    },
+    {
+        id: 11,
+        name: "Super car",
+        price: 125000,
+        description: "High-performance sports car",
+        image: "images/ajfgh.jpg"
+    },
+    {
+        id: 12,
+        name: "Super bomb",
+        price: 154200,
+        description: "Powerful explosive device",
+        image: "images/dghf.jpg"
+    },
+    {
+        id: 13,
+        name: "F1 Car",
+        price: 1500000,
+        description: "Formula 1 racing car",
+        image: "images/f1.jpg"
+    },
+    {
+        id: 14,
+        name: "Fighter Jet",
+        price: 1500000,
+        description: "Military fighter aircraft",
+        image: "images/f3.jpg"
+    },
+    {
+        id: 15,
+        name: "Luxury Super car",
+        price: 1500000,
+        description: "Premium luxury automobile",
+        image: "images/ffff.jpg"
+    },
+    {
+        id: 16,
+        name: "Real Estate Area",
+        price: 21000000,
+        description: "Prime real estate property",
+        image: "images/fggh.jpg"
+    },
+    {
+        id: 17,
+        name: "House",
+        price: 2000000,
+        description: "Beautiful family home",
+        image: "images/fghf.jpg"
+    },
+    {
+        id: 18,
+        name: "Hamilton Watch",
+        price: 1500000,
+        description: "Luxury Hamilton timepiece",
+        image: "images/fhgb.jpg"
     }
 ];
 
